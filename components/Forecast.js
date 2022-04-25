@@ -1,11 +1,19 @@
 import styled from "styled-components"
 import Spinner from "./Spinner"
 
-export default function Forecast() {
+export default function Forecast({ data }) {
+
+    if(!data) {
+        return <Wrapper>
+            <h1>Oops! No weather today.</h1>
+        </Wrapper>
+    }
+
+
     return <Wrapper>
-        <Description>Sunny</Description>
-        <Temp>80°F</Temp>
-        <Location>Los Angeles, California</Location>
+        <Description>{data?.current?.condition?.text}</Description>
+        <Temp>{data?.current?.temp_f}°F</Temp>
+        <Location>{data?.location?.name}, {data?.location?.region}</Location>
     </Wrapper>
 }
 const Wrapper = styled.div`

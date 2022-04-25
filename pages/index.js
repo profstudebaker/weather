@@ -11,9 +11,9 @@ const cities = [
 ]
 
 
-export default function Home() {
+export default function Home({ data }) {
   const [city, setCity] = useState("Los Angeles")
-  
+  console.log(data)
   return (
       <Wrapper>
       <Cities>
@@ -22,9 +22,21 @@ export default function Home() {
         ))}
       </Cities>
       <ForecastWrapper>
-        <Forecast />
+        <Forecast data={data}/>
       </ForecastWrapper>
       </Wrapper>)
+}
+
+export async function getServerSideProps(context) {
+  const key = process.env.WEATHER_API_KEY
+  const city = cities[0]
+  const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
+  const response = await fetch(url)
+  const data = await response.json()
+  
+  return {
+    props: { data }
+  }
 }
 
 const Cities = styled.div`
