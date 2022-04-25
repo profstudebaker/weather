@@ -1,10 +1,18 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
+  }
+  #__next {
+    height: 100%;
+  }
+  *, *::before, *::after {
     box-sizing: border-box;
+  }
+  body {
+   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 `
 
@@ -21,6 +29,6 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+      </>
   )
 }
