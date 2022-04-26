@@ -15,7 +15,7 @@ const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Home({ fallback }) {
   const [city, setCity] = useState("Los Angeles")
-  const { data, error } = useSWR("/api/weather", fetcher)
+  const { data, error } = useSWR(`/api/weather/${city}`, fetcher)
 
   return (
     <SWRConfig value={{ fallback }}>
