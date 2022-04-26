@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { useState } from "react"
+import { useState } from 'react'
+import useSWR, { SWRConfig } from 'swr'
 import Forecast from '../components/Forecast'
 
 const cities = [
@@ -10,11 +11,14 @@ const cities = [
   'Buenos Aires'
 ]
 
+const fetcher = url => fetch(url).then(r => r.json())
 
-export default function Home({ data }) {
+export default function Home({ fallback }) {
   const [city, setCity] = useState("Los Angeles")
-  console.log(data)
+  const { data, error } = useSWR("/api/weather", fetcher)
+
   return (
+    <SWRConfig value={{ fallback }}>
       <Wrapper>
       <Cities>
         { cities.map(c => (
@@ -22,9 +26,10 @@ export default function Home({ data }) {
         ))}
       </Cities>
       <ForecastWrapper>
-        <Forecast data={data}/>
+        <Forecast data={data} error={error} />
       </ForecastWrapper>
-      </Wrapper>)
+      </Wrapper>
+      </SWRConfig>)
 }
 
 export async function getServerSideProps(context) {

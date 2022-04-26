@@ -1,11 +1,17 @@
 import styled from "styled-components"
 import Spinner from "./Spinner"
 
-export default function Forecast({ data }) {
+export default function Forecast({ data, error }) {
 
-    if(!data) {
+    if(error) {
         return <Wrapper>
             <h1>Oops! No weather today.</h1>
+        </Wrapper>
+    }
+
+    if (!data) {
+        return <Wrapper>
+            <Spinner />
         </Wrapper>
     }
 
