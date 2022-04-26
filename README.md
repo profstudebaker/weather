@@ -1,5 +1,9 @@
 # Weather App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f433129e-e6d8-4292-898e-09d0fb931d7c/deploy-status)](https://app.netlify.com/sites/studebaker-weather/deploys)
+
+View Completed Demo: https://studebaker-weather.netlify.app/
+
 This repo contains the code for our in-class example of using getServerSideProps, useSWR, and API routes to fetch data from an external API with Next.js. 
 
 To follow along, fork this repo, clone it to your local computer, and then run the following commands:
