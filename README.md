@@ -24,3 +24,12 @@ WEATHER_API_KEY=xxxxxxxxxx
 (replace the xxxxxx with whatever your actual key is)
 
 This will keep your api key from being committed to git, and we will only reference it in your code by the environment variable name. We will use this only in `getServerSideProps` or API endpoints, so it will never be exposed on the client. This is generally considered best practice for using API keys when developing.
+
+### Helpful Documentation
+Stuck? Confused? Here's the documentation that is helpful for this project:
+- [async Javascript functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [getServerSideProps](https://nextjs.org/docs/api-reference/data-fetching/get-server-side-props)
+- [Getting Started with useSWR](https://swr.vercel.app/docs/getting-started)
+- [Using useSWR with Next.js SSR](https://swr.vercel.app/docs/with-nextjs)
+- [Introduction to Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
+- [Dynamic API Routes](https://nextjs.org/docs/api-routes/dynamic-api-routes)
